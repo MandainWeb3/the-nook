@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Nook — Coffee Truck</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=Caveat:wght@600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --linen:      #F9E8D4;
+      --tangelo:    #D54C15;
+      --choco:      #3D1F0D;
+      --blue:       #8DB6C7;
+      --blue-lt:    #C8DEE8;
+      --white:      #FFFAF5;
+      --font-display: 'Playfair Display', serif;
+      --font-body:    'DM Sans', sans-serif;
+      --font-hand:    'Caveat', cursive;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--linen);
+      color: var(--choco);
+      font-family: var(--font-body);
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 3rem;
+      height: 64px;
+      background: var(--tangelo);
+    }
+    .nav-logo {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.4rem;
+      color: var(--white);
+      letter-spacing: 0.01em;
+    }
+    nav ul { list-style: none; display: flex; gap: 2.5rem; }
+    nav ul a {
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,250,245,0.7);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    nav ul a:hover { color: var(--white); }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 64px 0 0;
+      background: var(--linen);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-left {
+      padding: 5rem 3rem 5rem 5rem;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-tag {
+      font-family: var(--font-hand);
+      font-size: 1.1rem;
+      color: var(--tangelo);
+      display: block;
+      margin-bottom: 1.25rem;
+    }
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 5.5vw, 5.5rem);
+      line-height: 1.0;
+      color: var(--choco);
+      margin-bottom: 1.5rem;
+    }
+    .hero-title em {
+      font-style: italic;
+      color: var(--tangelo);
+      display: block;
+    }
+    .hero-body {
+      font-size: 1rem;
+      color: var(--choco);
+      opacity: 0.65;
+      max-width: 380px;
+      line-height: 1.8;
+      margin-bottom: 2.5rem;
+    }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+    .btn {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 0.85rem 2rem;
+      transition: all 0.2s;
+    }
+    .btn-primary { background: var(--tangelo); color: var(--white); }
+    .btn-primary:hover { background: var(--choco); }
+    .btn-ghost { background: transparent; color: var(--choco); border: 1.5px solid var(--choco); }
+    .btn-ghost:hover { background: var(--choco); color: var(--white); }
+
+    /* hero right — big arch block */
+    .hero-right {
+      height: 100%;
+      background: var(--blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-arch-inner {
+      width: 320px;
+      height: 400px;
+      background: var(--blue-lt);
+      border-radius: 160px 160px 0 0;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding-bottom: 2rem;
+      position: relative;
+    }
+
+    /* SVG truck illustration */
+    .truck-svg { width: 260px; }
+
+    /* ── DIVIDER ── */
+    .divider { height: 1px; background: rgba(61,31,13,0.1); margin: 0 3rem; }
+
+    /* ── SECTION BASE ── */
+    section { padding: 6rem 5rem; }
+    .container { max-width: 1080px; margin: 0 auto; }
+    .eyebrow {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--tangelo);
+      display: block;
+      margin-bottom: 1rem;
+    }
+    h2 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      line-height: 1.1;
+      color: var(--choco);
+      margin-bottom: 1.5rem;
+    }
+    h2 em { font-style: italic; color: var(--tangelo); }
+
+    /* ── ABOUT ── */
+    #about { background: var(--white); padding: 7rem 5rem; }
+    .about-grid {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+    }
+    .about-text p {
+      font-size: 1rem;
+      line-height: 1.9;
+      color: var(--choco);
+      opacity: 0.75;
+      margin-bottom: 1.25rem;
+    }
+    .about-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 2rem;
+    }
+    .pill {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.4rem 1rem;
+    }
+    .pill-orange { background: var(--tangelo); color: var(--white); }
+    .pill-blue   { background: var(--blue); color: var(--white); }
+
+    .about-panel {
+      background: var(--blue);
+      padding: 3rem 2.5rem;
+      position: relative;
+    }
+    .about-panel-note {
+      font-family: var(--font-hand);
+      font-size: 1rem;
+      color: var(--white);
+      opacity: 0.6;
+      position: absolute;
+      top: -1rem;
+      right: 1.5rem;
+      transform: rotate(2deg);
+    }
+    .about-panel p {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.5rem;
+      line-height: 1.5;
+      color: var(--white);
+    }
+    .about-panel-sub {
+      font-family: var(--font-body) !important;
+      font-style: normal !important;
+      font-size: 0.88rem !important;
+      opacity: 0.65;
+      margin-top: 1.25rem !important;
+      line-height: 1.7 !important;
+    }
+
+    /* ── SCHEDULE ── */
+    #find { background: var(--linen); padding: 7rem 5rem; }
+    .find-inner { max-width: 1080px; margin: 0 auto; }
+    .schedule-lede {
+      font-size: 1rem; opacity: 0.65; line-height: 1.8;
+      max-width: 520px; margin-bottom: 3rem;
+    }
+    .week-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1px;
+      background: rgba(61,31,13,0.1);
+      border: 1px solid rgba(61,31,13,0.1);
+    }
+    .day-card {
+      background: var(--white);
+      padding: 1.75rem 1.5rem;
+      transition: background 0.2s;
+    }
+    .day-card:hover { background: var(--linen); }
+    .day-card.today { background: var(--tangelo); }
+    .day-card.closed { background: var(--linen); }
+    .day-name {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--choco);
+      opacity: 0.4;
+      margin-bottom: 0.6rem;
+    }
+    .day-card.today .day-name { color: var(--white); opacity: 0.6; }
+    .day-where {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-style: italic;
+      color: var(--choco);
+      margin-bottom: 0.35rem;
+    }
+    .day-card.today .day-where { color: var(--white); }
+    .day-card.closed .day-where { opacity: 0.35; }
+    .day-time {
+      font-size: 0.82rem;
+      color: var(--choco);
+      opacity: 0.45;
+    }
+    .day-card.today .day-time { color: var(--white); opacity: 0.65; }
+
+    .ig-bar {
+      margin-top: 2rem;
+      padding: 1.5rem 2rem;
+      background: var(--choco);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .ig-bar p {
+      font-size: 0.9rem;
+      color: var(--white);
+      opacity: 0.75;
+      line-height: 1.6;
+    }
+    .ig-bar strong { color: var(--white); opacity: 1; display: block; font-family: var(--font-display); font-style: italic; font-size: 1.1rem; font-weight: 400; }
+    .ig-bar a {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--blue-lt);
+      text-decoration: none;
+      border-bottom: 1px solid var(--blue);
+      padding-bottom: 2px;
+      white-space: nowrap;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .ig-bar a:hover { color: var(--white); border-color: var(--white); }
+
+    /* ── MENU ── */
+    #menu { background: var(--tangelo); padding: 7rem 5rem; }
+    #menu .eyebrow { color: var(--blue-lt); }
+    #menu h2 { color: var(--white); }
+    #menu h2 em { color: var(--blue-lt); }
+
+    .menu-tabs { display: flex; gap: 0; margin-bottom: 3rem; border-bottom: 1px solid rgba(255,250,245,0.2); }
+    .tab-btn {
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.75rem 1.75rem;
+      background: transparent;
+      color: rgba(255,250,245,0.5);
+      border: none;
+      border-bottom: 2px solid transparent;
+      cursor: pointer;
+      transition: all 0.2s;
+      margin-bottom: -1px;
+    }
+    .tab-btn:hover { color: var(--white); }
+    .tab-btn.active { color: var(--white); border-bottom-color: var(--white); }
+
+    .menu-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px,1fr)); gap: 1px; background: rgba(255,250,245,0.15); }
+    .menu-card { background: var(--tangelo); padding: 2rem 1.75rem; transition: background 0.2s; }
+    .menu-card:hover { background: #C0440F; }
+    .menu-card-name {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-style: italic;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+    }
+    .menu-card-desc { font-size: 0.85rem; color: rgba(255,250,245,0.6); line-height: 1.65; }
+    .menu-card-price {
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      color: var(--blue-lt);
+      margin-top: 1.25rem;
+      display: block;
+    }
+    .menu-panel { display: none; }
+    .menu-panel.active { display: block; }
+
+    /* ── ABOUT TRUCK ── */
+    #vibe { background: var(--blue); padding: 7rem 5rem; }
+    #vibe .eyebrow { color: rgba(255,250,245,0.5); }
+    #vibe h2 { color: var(--white); }
+    #vibe h2 em { color: var(--linen); }
+
+    .vibe-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 0; background: rgba(255,250,245,0.12); }
+    .vibe-card { padding: 2.25rem 2rem; border: 1px solid rgba(255,250,245,0.1); background: transparent; transition: background 0.2s; }
+    .vibe-card:hover { background: rgba(255,250,245,0.08); }
+    .vibe-num {
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      font-style: italic;
+      color: rgba(255,250,245,0.15);
+      display: block;
+      margin-bottom: 0.75rem;
+      line-height: 1;
+    }
+    .vibe-card h3 {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-style: italic;
+      color: var(--white);
+      margin-bottom: 0.6rem;
+    }
+    .vibe-card p { font-size: 0.85rem; color: rgba(255,250,245,0.55); line-height: 1.75; }
+
+    /* ── NEWSLETTER ── */
+    #newsletter { background: var(--linen); padding: 7rem 5rem; text-align: center; }
+    .newsletter-inner { max-width: 480px; margin: 0 auto; }
+    .newsletter-inner h2 { font-size: 2.25rem; }
+    .newsletter-inner p { font-size: 0.95rem; opacity: 0.6; line-height: 1.8; margin-bottom: 2rem; }
+    .email-form { display: flex; gap: 0; }
+    .email-form input {
+      flex: 1;
+      padding: 0.9rem 1.2rem;
+      border: 1.5px solid rgba(61,31,13,0.2);
+      border-right: none;
+      background: var(--white);
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      color: var(--choco);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .email-form input:focus { border-color: var(--tangelo); }
+    .email-form input::placeholder { opacity: 0.35; }
+    .email-form button {
+      background: var(--tangelo); color: var(--white); border: none;
+      padding: 0 1.5rem;
+      font-family: var(--font-body); font-size: 0.75rem; font-weight: 500;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      cursor: pointer; transition: background 0.2s; white-space: nowrap;
+    }
+    .email-form button:hover { background: var(--choco); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--choco);
+      padding: 3rem 5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+    .footer-logo { font-family: var(--font-display); font-style: italic; font-size: 1.4rem; color: var(--linen); }
+    .footer-links { display: flex; gap: 2rem; }
+    .footer-links a { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(249,232,212,0.4); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--linen); }
+    footer p { font-size: 0.75rem; color: rgba(249,232,212,0.25); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      #hero { grid-template-columns: 1fr; }
+      .hero-right { display: none; }
+      .hero-left { padding: 4rem 2rem; }
+      section, #about, #find, #menu, #vibe, #newsletter { padding: 5rem 2rem; }
+      .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .vibe-grid { grid-template-columns: 1fr 1fr; }
+      footer { flex-direction: column; align-items: flex-start; padding: 2.5rem 2rem; }
+      nav { padding: 0 2rem; }
+      nav ul { display: none; }
+    }
+    @media (max-width: 560px) {
+      .vibe-grid { grid-template-columns: 1fr; }
+      .email-form { flex-direction: column; }
+      .email-form input { border-right: 1.5px solid rgba(61,31,13,0.2); border-bottom: none; }
+    }
+
+    /* ── FADE ── */
+    .fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-logo">The Nook</div>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#find">Find Us</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#newsletter">Stay in Touch</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-left">
+      <span class="hero-tag">Coffee Truck · Coming to you</span>
+      <h1 class="hero-title">
+        Great coffee<br>
+        <em>finds you.</em>
+      </h1>
+      <p class="hero-body">The Nook is on the move — small-batch coffee, made to order, wherever you already are. Find the truck, grab something good.</p>
+      <div class="hero-actions">
+        <a href="#find" class="btn btn-primary">Find the Truck</a>
+        <a href="#menu" class="btn btn-ghost">See the Menu</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-arch-inner">
+        <!-- clean SVG truck -->
+        <svg class="truck-svg" viewBox="0 0 260 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- truck body -->
+          <rect x="0" y="30" width="185" height="75" rx="4" fill="#D54C15"/>
+          <!-- cab -->
+          <rect x="185" y="14" width="75" height="91" rx="4" fill="#3D1F0D"/>
+          <!-- window -->
+          <rect x="193" y="22" width="59" height="38" rx="3" fill="#C8DEE8" opacity="0.85"/>
+          <!-- truck side stripe -->
+          <rect x="0" y="88" width="185" height="17" rx="0" fill="#3D1F0D" opacity="0.25"/>
+          <!-- The Nook lettering -->
+          <text x="18" y="72" font-family="Georgia, serif" font-style="italic" font-size="18" fill="#FFFAF5" opacity="0.95">The Nook</text>
+          <!-- wheel left -->
+          <circle cx="48" cy="108" r="18" fill="#3D1F0D"/>
+          <circle cx="48" cy="108" r="9" fill="#C8DEE8" opacity="0.5"/>
+          <!-- wheel right -->
+          <circle cx="155" cy="108" r="18" fill="#3D1F0D"/>
+          <circle cx="155" cy="108" r="9" fill="#C8DEE8" opacity="0.5"/>
+          <!-- steam lines -->
+          <line x1="40" y1="28" x2="40" y2="10" stroke="#FFFAF5" stroke-width="3" stroke-linecap="round" opacity="0.4"/>
+          <line x1="58" y1="24" x2="58" y2="6" stroke="#FFFAF5" stroke-width="3" stroke-linecap="round" opacity="0.25"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="about-grid">
+      <div class="about-text fade-up">
+        <span class="eyebrow">Our story</span>
+        <h2>Coffee that <em>comes to you</em></h2>
+        <p>The Nook started with a simple idea: great coffee shouldn't require a detour. So we put it on wheels and brought it to where people already are — farmers markets, office parks, weekend pop-ups, neighborhood corners.</p>
+        <p>We source small-batch beans, steam every cup to order, and show up with the same care every single day. No drive-through energy. Just a window, a real conversation, and something worth waking up for.</p>
+        <div class="about-pills">
+          <span class="pill pill-orange">Small-batch beans</span>
+          <span class="pill pill-blue">Oat milk always</span>
+          <span class="pill pill-orange">Dog friendly</span>
+          <span class="pill pill-blue">New spots weekly</span>
+        </div>
+      </div>
+      <div class="about-panel fade-up">
+        <span class="about-panel-note">pinky promise</span>
+        <p>"We park where the people are — not the other way around."</p>
+        <p class="about-panel-sub">Check the weekly schedule every Sunday. We're always adding new stops and pop-up events around town. Follow us on Instagram to never miss a location.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FIND THE TRUCK -->
+  <section id="find">
+    <div class="find-inner">
+      <div class="fade-up">
+        <span class="eyebrow">This week's stops</span>
+        <h2>Where to <em>find us</em></h2>
+        <p class="schedule-lede">We roll out six days a week. Locations can shift — follow us on Instagram for real-time updates and surprise stops.</p>
+      </div>
+      <div class="week-grid fade-up">
+        <div class="day-card">
+          <div class="day-name">Monday</div>
+          <div class="day-where">Downtown Farmers Market</div>
+          <div class="day-time">7:00 am – 12:00 pm</div>
+        </div>
+        <div class="day-card">
+          <div class="day-name">Tuesday</div>
+          <div class="day-where">Midtown Office Row</div>
+          <div class="day-time">7:30 am – 1:00 pm</div>
+        </div>
+        <div class="day-card">
+          <div class="day-name">Wednesday</div>
+          <div class="day-where">Riverside Park</div>
+          <div class="day-time">8:00 am – 1:00 pm</div>
+        </div>
+        <div class="day-card">
+          <div class="day-name">Thursday</div>
+          <div class="day-where">Midtown Office Row</div>
+          <div class="day-time">7:30 am – 1:00 pm</div>
+        </div>
+        <div class="day-card">
+          <div class="day-name">Friday</div>
+          <div class="day-where">Pop-up — check Instagram</div>
+          <div class="day-time">Location varies</div>
+        </div>
+        <div class="day-card">
+          <div class="day-name">Saturday</div>
+          <div class="day-where">Oak Street Weekend Market</div>
+          <div class="day-time">8:00 am – 2:00 pm</div>
+        </div>
+        <div class="day-card closed">
+          <div class="day-name">Sunday</div>
+          <div class="day-where">The truck is resting</div>
+          <div class="day-time">Back Monday</div>
+        </div>
+      </div>
+      <div class="ig-bar fade-up">
+        <div>
+          <strong>Locations change week to week</strong>
+          <p>We post every Sunday with the week ahead — new spots, pop-ups, and the occasional free drink.</p>
+        </div>
+        <a href="#">Follow @thenooktruck</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENU -->
+  <section id="menu">
+    <div class="container">
+      <div class="fade-up">
+        <span class="eyebrow">What we're pouring</span>
+        <h2>Made to order, <em>every time</em></h2>
+      </div>
+      <div class="menu-tabs fade-up">
+        <button class="tab-btn active" onclick="switchTab('coffee',event)">Coffee</button>
+        <button class="tab-btn" onclick="switchTab('tea',event)">Tea &amp; More</button>
+        <button class="tab-btn" onclick="switchTab('bites',event)">Bites</button>
+      </div>
+
+      <div id="tab-coffee" class="menu-panel active">
+        <div class="menu-grid">
+          <div class="menu-card fade-up">
+            <div class="menu-card-name">Nook Latte</div>
+            <div class="menu-card-desc">House espresso, velvety steamed milk, a touch of vanilla. The one people come back for.</div>
+            <span class="menu-card-price">$5.50</span>
+          </div>
+          <div class="menu-card fade-up">
+            <div class="menu-card-name">Black &amp; Bright</div>
+            <div class="menu-card-desc">A clean pour-over, brewed slow and served black. Simple, serious, perfect.</div>
+            <span class="menu-card-price">$4.00</span>
+          </div>
+          <div class="menu-card fade-up">
+            <div class="menu-card-name">Honey Cortado</div>
+            <div class="menu-card-desc">Equal parts espresso and warm milk, finished with a swirl of local wildflower honey.</div>
+            <span class="menu-card-price">$5.00</span>
+          </div>
+          <div class="menu-card fade-up">
+            <div class="menu-card-name">Cold Brew Float</div>
+            <div class="menu-card-desc">Slow-steeped cold brew over a scoop of vanilla bean ice cream. Yes, really.</div>
+            <span class="menu-card-price">$7.00</span>
+          </div>
+        </div>
+      </div>
+      <div id="tab-tea" class="menu-panel">
+        <div class="menu-grid">
+          <div class="menu-card fade-up">
+            <div class="menu-card-name">Loose Leaf Earl Grey</div>
+            <div class="menu-card-desc">Bergamot-forward, fragrant. Served with cream and brown sugar cubes.</div>
+            <span class="menu-card-price">$4.50</span>
+          </div>
+          <div class="menu-card fade-up">
+            <div class="menu-card-name">Mint Matcha</div>
+            <div class="menu-card-desc">Ceremonial-grade matcha with oat milk and a breath of fresh mint.</div>
+            <span class="menu-card-price">$6.00</span>
+          </div>
+          <div class="menu-card fade-up">
+            <div class="menu-card-name">Berry Hibiscus Spritz</div>
+            <div class="menu-card-desc">Hibiscus tea, muddled blueberries, sparkling water. Tart and beautiful.</div>
+            <span class="menu-card-price">$5.50</span>
+          </div>
+          <div class="menu-card fade-up">
+            <div class="menu-card-name">Lemon Ginger Tonic</div>
+            <div class="menu-card-desc">Ginger syrup, fresh lemon, tonic water over ice. Zingy, fizzy, alive.</div>
+            <span class="menu-card-price">$5.00</span>
+          </div>
+        </div>
+      </div>
+      <div id="tab-bites" class="menu-panel">
+        <div class="menu-grid">
+          <div class="menu-card fade-up">
+            <div class="menu-card-name">Butter Croissant</div>
+            <div class="menu-card-desc">Baked fresh each morning. Shatters on the outside, pillowy in the middle.</div>
+            <span class="menu-card-price">$3.50</span>
+          </div>
+          <div class="menu-card fade-up">
+            <div class="menu-card-name">Lemon Poppy Loaf</div>
+            <div class="menu-card-desc">Dense, zesty, drizzled with a lemon glaze that borders on dessert.</div>
+            <span class="menu-card-price">$4.00</span>
+          </div>
+          <div class="menu-card fade-up">
+            <div class="menu-card-name">Grab &amp; Go Wrap</div>
+            <div class="menu-card-desc">Scrambled eggs, sharp cheddar, roasted peppers. Truck-friendly fuel.</div>
+            <span class="menu-card-price">$8.00</span>
+          </div>
+          <div class="menu-card fade-up">
+            <div class="menu-card-name">Brown Butter Cookie</div>
+            <div class="menu-card-desc">Edges crisp, center chewy, finished with a pinch of flaky sea salt.</div>
+            <span class="menu-card-price">$3.00</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIBE -->
+  <section id="vibe">
+    <div class="container">
+      <div class="fade-up">
+        <span class="eyebrow">The truck life</span>
+        <h2>You'll love us <em>if —</em></h2>
+      </div>
+      <div class="vibe-grid">
+        <div class="vibe-card fade-up">
+          <span class="vibe-num">01</span>
+          <h3>You're an early bird</h3>
+          <p>We're already parked and brewing before most people find their shoes. Come find us.</p>
+        </div>
+        <div class="vibe-card fade-up">
+          <span class="vibe-num">02</span>
+          <h3>You like a little adventure</h3>
+          <p>We move around. Half the fun is finding us somewhere new and unexpected.</p>
+        </div>
+        <div class="vibe-card fade-up">
+          <span class="vibe-num">03</span>
+          <h3>You like knowing your barista</h3>
+          <p>It's just us at the window. We'll remember your name before your order.</p>
+        </div>
+        <div class="vibe-card fade-up">
+          <span class="vibe-num">04</span>
+          <h3>You bring your dog everywhere</h3>
+          <p>We keep a water bowl by the truck and probably a treat behind the counter.</p>
+        </div>
+        <div class="vibe-card fade-up">
+          <span class="vibe-num">05</span>
+          <h3>You follow local businesses</h3>
+          <p>Tag us, share us, tell your friends. That's genuinely how we grow.</p>
+        </div>
+        <div class="vibe-card fade-up">
+          <span class="vibe-num">06</span>
+          <h3>Rainy days don't stop you</h3>
+          <p>Neither do they stop us. We'll be there, probably with something seasonal.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section id="newsletter">
+    <div class="newsletter-inner fade-up">
+      <span class="eyebrow" style="color:var(--tangelo)">Never miss the truck</span>
+      <h2>Get the <em>weekly route</em></h2>
+      <p>Every Sunday we send out the week's schedule, any new stops, and the occasional drink special. No spam — just coffee news.</p>
+      <div class="email-form">
+        <input type="email" placeholder="your@email.com" />
+        <button type="button" onclick="handleSubscribe(this)">Subscribe</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">The Nook</div>
+    <div class="footer-links">
+      <a href="#">Instagram</a>
+      <a href="#">Facebook</a>
+      <a href="#">TikTok</a>
+    </div>
+    <p>© 2025 The Nook Coffee Truck</p>
+  </footer>
+
+  <script>
+    function switchTab(name, e) {
+      document.querySelectorAll('.menu-panel').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.getElementById('tab-' + name).classList.add('active');
+      e.target.classList.add('active');
+      document.querySelectorAll('#tab-' + name + ' .fade-up').forEach((el, i) => {
+        el.classList.remove('visible');
+        setTimeout(() => el.classList.add('visible'), i * 70);
+      });
+    }
+
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
+
+    function handleSubscribe(btn) {
+      const input = btn.previousElementSibling;
+      if (!input.value || !input.value.includes('@')) { input.style.borderColor = 'var(--tangelo)'; return; }
+      btn.textContent = 'You\'re in';
+      btn.style.background = 'var(--choco)';
+      input.disabled = true; btn.disabled = true;
+    }
+
+    const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+    const today = days[new Date().getDay()];
+    document.querySelectorAll('.day-name').forEach(el => {
+      if (el.textContent.trim() === today) el.closest('.day-card').classList.add('today');
+    });
+  </script>
+</body>
+</html>
