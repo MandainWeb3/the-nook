@@ -17,429 +17,237 @@
       --font-body:    'DM Sans', sans-serif;
       --font-hand:    'Caveat', cursive;
     }
-
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body {
-      background: var(--linen);
-      color: var(--choco);
-      font-family: var(--font-body);
-      font-weight: 300;
-      font-size: 16px;
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
+    body { background: var(--linen); color: var(--choco); font-family: var(--font-body); font-weight: 300; font-size: 16px; line-height: 1.6; overflow-x: hidden; }
 
-    /* ── NAV ── */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0 3rem;
-      height: 64px;
-      background: var(--tangelo);
-    }
-    .nav-logo {
-      font-family: var(--font-display);
-      font-style: italic;
-      font-size: 1.4rem;
-      color: var(--white);
-      letter-spacing: 0.01em;
-    }
-    nav ul { list-style: none; display: flex; gap: 2.5rem; }
-    nav ul a {
-      font-size: 0.78rem;
-      font-weight: 500;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: rgba(255,250,245,0.7);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
+    /* NAV */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 3rem; height: 64px; background: var(--tangelo); }
+    .nav-logo { font-family: var(--font-display); font-style: italic; font-size: 1.4rem; color: var(--white); }
+    nav ul { list-style: none; display: flex; gap: 2rem; }
+    nav ul a { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,250,245,0.7); text-decoration: none; transition: color 0.2s; }
     nav ul a:hover { color: var(--white); }
 
-    /* ── HERO ── */
-    #hero {
-      min-height: 100vh;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      align-items: center;
-      padding: 64px 0 0;
-      background: var(--linen);
-      position: relative;
-      overflow: hidden;
-    }
-    .hero-left {
-      padding: 5rem 3rem 5rem 5rem;
-      position: relative;
-      z-index: 1;
-    }
-    .hero-tag {
-      font-family: var(--font-hand);
-      font-size: 1.1rem;
-      color: var(--tangelo);
-      display: block;
-      margin-bottom: 1.25rem;
-    }
-    .hero-title {
-      font-family: var(--font-display);
-      font-size: clamp(3rem, 5.5vw, 5.5rem);
-      line-height: 1.0;
-      color: var(--choco);
-      margin-bottom: 1.5rem;
-    }
-    .hero-title em {
-      font-style: italic;
-      color: var(--tangelo);
-      display: block;
-    }
-    .hero-body {
-      font-size: 1rem;
-      color: var(--choco);
-      opacity: 0.65;
-      max-width: 380px;
-      line-height: 1.8;
-      margin-bottom: 2.5rem;
-    }
+    /* HERO */
+    #hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; align-items: center; padding: 64px 0 0; background: var(--linen); position: relative; overflow: hidden; }
+    .hero-left { padding: 5rem 3rem 5rem 5rem; position: relative; z-index: 1; }
+    .hero-tag { font-family: var(--font-hand); font-size: 1.1rem; color: var(--tangelo); display: block; margin-bottom: 1.25rem; }
+    .hero-title { font-family: var(--font-display); font-size: clamp(3rem, 5.5vw, 5.5rem); line-height: 1.0; color: var(--choco); margin-bottom: 1.5rem; }
+    .hero-title em { font-style: italic; color: var(--tangelo); display: block; }
+    .hero-body { font-size: 1rem; color: var(--choco); opacity: 0.65; max-width: 380px; line-height: 1.8; margin-bottom: 2.5rem; }
     .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
-
-    .btn {
-      display: inline-block;
-      font-family: var(--font-body);
-      font-size: 0.75rem;
-      font-weight: 500;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      text-decoration: none;
-      padding: 0.85rem 2rem;
-      transition: all 0.2s;
-    }
+    .btn { display: inline-block; font-family: var(--font-body); font-size: 0.75rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; padding: 0.85rem 2rem; transition: all 0.2s; cursor: pointer; border: none; }
     .btn-primary { background: var(--tangelo); color: var(--white); }
     .btn-primary:hover { background: var(--choco); }
     .btn-ghost { background: transparent; color: var(--choco); border: 1.5px solid var(--choco); }
     .btn-ghost:hover { background: var(--choco); color: var(--white); }
-
-    /* hero right — big arch block */
-    .hero-right {
-      height: 100%;
-      background: var(--blue);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero-arch-inner {
-      width: 320px;
-      height: 400px;
-      background: var(--blue-lt);
-      border-radius: 160px 160px 0 0;
-      display: flex;
-      align-items: flex-end;
-      justify-content: center;
-      padding-bottom: 2rem;
-      position: relative;
-    }
-
-    /* SVG truck illustration */
+    .btn-blue { background: var(--blue); color: var(--white); }
+    .btn-blue:hover { background: #7aaabb; }
+    .hero-right { height: 100%; background: var(--blue); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+    .hero-arch-inner { width: 320px; height: 400px; background: var(--blue-lt); border-radius: 160px 160px 0 0; display: flex; align-items: flex-end; justify-content: center; padding-bottom: 2rem; }
     .truck-svg { width: 260px; }
 
-    /* ── DIVIDER ── */
-    .divider { height: 1px; background: rgba(61,31,13,0.1); margin: 0 3rem; }
-
-    /* ── SECTION BASE ── */
+    /* SECTION BASE */
     section { padding: 6rem 5rem; }
     .container { max-width: 1080px; margin: 0 auto; }
-    .eyebrow {
-      font-size: 0.72rem;
-      font-weight: 500;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--tangelo);
-      display: block;
-      margin-bottom: 1rem;
-    }
-    h2 {
-      font-family: var(--font-display);
-      font-size: clamp(2rem, 3.5vw, 3rem);
-      line-height: 1.1;
-      color: var(--choco);
-      margin-bottom: 1.5rem;
-    }
+    .eyebrow { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--tangelo); display: block; margin-bottom: 1rem; }
+    h2 { font-family: var(--font-display); font-size: clamp(2rem, 3.5vw, 3rem); line-height: 1.1; color: var(--choco); margin-bottom: 1.5rem; }
     h2 em { font-style: italic; color: var(--tangelo); }
 
-    /* ── ABOUT ── */
+    /* LIVE LOCATION */
+    #location { background: var(--choco); padding: 7rem 5rem; }
+    #location .eyebrow { color: var(--blue-lt); }
+    #location h2 { color: var(--white); }
+    #location h2 em { color: var(--blue-lt); }
+    .location-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+    .location-status {
+      background: rgba(255,250,245,0.05);
+      border: 1px solid rgba(255,250,245,0.1);
+      padding: 2rem;
+      margin-bottom: 1.5rem;
+    }
+    .status-dot {
+      display: inline-block; width: 10px; height: 10px;
+      background: #4CAF50; border-radius: 50%;
+      margin-right: 0.5rem;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    .status-dot.closed { background: rgba(255,250,245,0.3); animation: none; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+    .status-label { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,250,245,0.5); }
+    .status-place { font-family: var(--font-display); font-style: italic; font-size: 1.6rem; color: var(--white); margin: 0.5rem 0 0.25rem; }
+    .status-time { font-size: 0.85rem; color: rgba(255,250,245,0.5); }
+    .status-address { font-size: 0.88rem; color: rgba(255,250,245,0.45); margin-top: 0.25rem; }
+
+    .day-pills { display: flex; flex-direction: column; gap: 0.75rem; }
+    .day-pill {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 0.85rem 1.25rem;
+      background: rgba(255,250,245,0.04);
+      border: 1px solid rgba(255,250,245,0.08);
+      cursor: pointer; transition: background 0.2s;
+    }
+    .day-pill:hover { background: rgba(255,250,245,0.08); }
+    .day-pill.active { background: var(--tangelo); border-color: var(--tangelo); }
+    .day-pill-name { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,250,245,0.6); }
+    .day-pill.active .day-pill-name { color: var(--white); }
+    .day-pill-loc { font-family: var(--font-display); font-style: italic; font-size: 0.95rem; color: var(--white); }
+    .day-pill-time { font-size: 0.78rem; color: rgba(255,250,245,0.4); }
+    .day-pill.active .day-pill-time { color: rgba(255,250,245,0.7); }
+    .day-pill.rest { opacity: 0.35; cursor: default; }
+
+    .map-embed { width: 100%; height: 340px; border: none; filter: grayscale(20%) contrast(1.05); }
+
+    /* ABOUT */
     #about { background: var(--white); padding: 7rem 5rem; }
-    .about-grid {
-      max-width: 1080px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 6rem;
-      align-items: center;
-    }
-    .about-text p {
-      font-size: 1rem;
-      line-height: 1.9;
-      color: var(--choco);
-      opacity: 0.75;
-      margin-bottom: 1.25rem;
-    }
-    .about-pills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-top: 2rem;
-    }
-    .pill {
-      font-size: 0.75rem;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 0.4rem 1rem;
-    }
+    .about-grid { max-width: 1080px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
+    .about-text p { font-size: 1rem; line-height: 1.9; color: var(--choco); opacity: 0.75; margin-bottom: 1.25rem; }
+    .about-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 2rem; }
+    .pill { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.4rem 1rem; }
     .pill-orange { background: var(--tangelo); color: var(--white); }
     .pill-blue   { background: var(--blue); color: var(--white); }
+    .about-panel { background: var(--blue); padding: 3rem 2.5rem; position: relative; }
+    .about-panel-note { font-family: var(--font-hand); font-size: 1rem; color: var(--white); opacity: 0.6; position: absolute; top: -1rem; right: 1.5rem; transform: rotate(2deg); }
+    .about-panel p { font-family: var(--font-display); font-style: italic; font-size: 1.5rem; line-height: 1.5; color: var(--white); }
+    .about-panel-sub { font-family: var(--font-body) !important; font-style: normal !important; font-size: 0.88rem !important; opacity: 0.65; margin-top: 1.25rem !important; line-height: 1.7 !important; }
 
-    .about-panel {
-      background: var(--blue);
-      padding: 3rem 2.5rem;
-      position: relative;
-    }
-    .about-panel-note {
-      font-family: var(--font-hand);
-      font-size: 1rem;
-      color: var(--white);
-      opacity: 0.6;
-      position: absolute;
-      top: -1rem;
-      right: 1.5rem;
-      transform: rotate(2deg);
-    }
-    .about-panel p {
-      font-family: var(--font-display);
-      font-style: italic;
-      font-size: 1.5rem;
-      line-height: 1.5;
-      color: var(--white);
-    }
-    .about-panel-sub {
-      font-family: var(--font-body) !important;
-      font-style: normal !important;
-      font-size: 0.88rem !important;
-      opacity: 0.65;
-      margin-top: 1.25rem !important;
-      line-height: 1.7 !important;
-    }
-
-    /* ── SCHEDULE ── */
-    #find { background: var(--linen); padding: 7rem 5rem; }
-    .find-inner { max-width: 1080px; margin: 0 auto; }
-    .schedule-lede {
-      font-size: 1rem; opacity: 0.65; line-height: 1.8;
-      max-width: 520px; margin-bottom: 3rem;
-    }
-    .week-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 1px;
-      background: rgba(61,31,13,0.1);
-      border: 1px solid rgba(61,31,13,0.1);
-    }
-    .day-card {
-      background: var(--white);
-      padding: 1.75rem 1.5rem;
-      transition: background 0.2s;
-    }
-    .day-card:hover { background: var(--linen); }
-    .day-card.today { background: var(--tangelo); }
-    .day-card.closed { background: var(--linen); }
-    .day-name {
-      font-size: 0.7rem;
-      font-weight: 500;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--choco);
-      opacity: 0.4;
-      margin-bottom: 0.6rem;
-    }
-    .day-card.today .day-name { color: var(--white); opacity: 0.6; }
-    .day-where {
-      font-family: var(--font-display);
-      font-size: 1.05rem;
-      font-style: italic;
-      color: var(--choco);
-      margin-bottom: 0.35rem;
-    }
-    .day-card.today .day-where { color: var(--white); }
-    .day-card.closed .day-where { opacity: 0.35; }
-    .day-time {
-      font-size: 0.82rem;
-      color: var(--choco);
-      opacity: 0.45;
-    }
-    .day-card.today .day-time { color: var(--white); opacity: 0.65; }
-
-    .ig-bar {
-      margin-top: 2rem;
-      padding: 1.5rem 2rem;
-      background: var(--choco);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-    .ig-bar p {
-      font-size: 0.9rem;
-      color: var(--white);
-      opacity: 0.75;
-      line-height: 1.6;
-    }
-    .ig-bar strong { color: var(--white); opacity: 1; display: block; font-family: var(--font-display); font-style: italic; font-size: 1.1rem; font-weight: 400; }
-    .ig-bar a {
-      font-size: 0.75rem;
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--blue-lt);
-      text-decoration: none;
-      border-bottom: 1px solid var(--blue);
-      padding-bottom: 2px;
-      white-space: nowrap;
-      transition: color 0.2s, border-color 0.2s;
-    }
-    .ig-bar a:hover { color: var(--white); border-color: var(--white); }
-
-    /* ── MENU ── */
+    /* MENU */
     #menu { background: var(--tangelo); padding: 7rem 5rem; }
     #menu .eyebrow { color: var(--blue-lt); }
     #menu h2 { color: var(--white); }
     #menu h2 em { color: var(--blue-lt); }
-
     .menu-tabs { display: flex; gap: 0; margin-bottom: 3rem; border-bottom: 1px solid rgba(255,250,245,0.2); }
-    .tab-btn {
-      font-family: var(--font-body);
-      font-size: 0.75rem;
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      padding: 0.75rem 1.75rem;
-      background: transparent;
-      color: rgba(255,250,245,0.5);
-      border: none;
-      border-bottom: 2px solid transparent;
-      cursor: pointer;
-      transition: all 0.2s;
-      margin-bottom: -1px;
-    }
+    .tab-btn { font-family: var(--font-body); font-size: 0.75rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.75rem 1.75rem; background: transparent; color: rgba(255,250,245,0.5); border: none; border-bottom: 2px solid transparent; cursor: pointer; transition: all 0.2s; margin-bottom: -1px; }
     .tab-btn:hover { color: var(--white); }
     .tab-btn.active { color: var(--white); border-bottom-color: var(--white); }
-
     .menu-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px,1fr)); gap: 1px; background: rgba(255,250,245,0.15); }
     .menu-card { background: var(--tangelo); padding: 2rem 1.75rem; transition: background 0.2s; }
     .menu-card:hover { background: #C0440F; }
-    .menu-card-name {
-      font-family: var(--font-display);
-      font-size: 1.1rem;
-      font-style: italic;
-      color: var(--white);
-      margin-bottom: 0.5rem;
-    }
+    .menu-card-name { font-family: var(--font-display); font-size: 1.1rem; font-style: italic; color: var(--white); margin-bottom: 0.5rem; }
     .menu-card-desc { font-size: 0.85rem; color: rgba(255,250,245,0.6); line-height: 1.65; }
-    .menu-card-price {
-      font-size: 0.8rem;
-      font-weight: 500;
-      letter-spacing: 0.08em;
-      color: var(--blue-lt);
-      margin-top: 1.25rem;
-      display: block;
-    }
+    .menu-card-price { font-size: 0.8rem; font-weight: 500; letter-spacing: 0.08em; color: var(--blue-lt); margin-top: 1.25rem; display: block; }
     .menu-panel { display: none; }
     .menu-panel.active { display: block; }
 
-    /* ── ABOUT TRUCK ── */
+    /* DRINK BUILDER */
+    #builder { background: var(--linen); padding: 7rem 5rem; }
+    .builder-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+    .builder-options { display: flex; flex-direction: column; gap: 2rem; }
+    .builder-group label { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--tangelo); display: block; margin-bottom: 0.75rem; }
+    .option-row { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .opt-btn {
+      font-family: var(--font-body); font-size: 0.8rem; font-weight: 400;
+      padding: 0.5rem 1.1rem;
+      background: var(--white); color: var(--choco);
+      border: 1.5px solid rgba(61,31,13,0.15);
+      cursor: pointer; transition: all 0.15s;
+    }
+    .opt-btn:hover { border-color: var(--tangelo); color: var(--tangelo); }
+    .opt-btn.selected { background: var(--tangelo); color: var(--white); border-color: var(--tangelo); }
+
+    .builder-preview {
+      background: var(--white);
+      border: 1.5px solid rgba(61,31,13,0.1);
+      padding: 2.5rem;
+      position: sticky; top: 90px;
+    }
+    .preview-cup {
+      width: 140px; height: 140px; margin: 0 auto 1.5rem;
+      position: relative; display: flex; align-items: center; justify-content: center;
+    }
+    .preview-cup svg { width: 100%; height: 100%; }
+    .preview-name { font-family: var(--font-display); font-style: italic; font-size: 1.4rem; color: var(--choco); text-align: center; margin-bottom: 0.5rem; min-height: 2rem; }
+    .preview-desc { font-size: 0.85rem; color: var(--choco); opacity: 0.55; text-align: center; line-height: 1.6; min-height: 3rem; }
+    .preview-price { font-size: 0.8rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--tangelo); text-align: center; margin-top: 1rem; }
+    .preview-divider { height: 1px; background: rgba(61,31,13,0.08); margin: 1.5rem 0; }
+    .preview-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; justify-content: center; min-height: 28px; }
+    .preview-tag { font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.25rem 0.6rem; background: var(--linen); color: var(--choco); opacity: 0.7; }
+    .builder-add-btn { width: 100%; margin-top: 1.5rem; padding: 1rem; background: var(--tangelo); color: var(--white); border: none; font-family: var(--font-body); font-size: 0.78rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer; transition: background 0.2s; }
+    .builder-add-btn:hover { background: var(--choco); }
+    .builder-toast { display: none; text-align: center; font-family: var(--font-hand); font-size: 1.1rem; color: var(--tangelo); margin-top: 0.75rem; }
+
+    /* VIBE */
     #vibe { background: var(--blue); padding: 7rem 5rem; }
     #vibe .eyebrow { color: rgba(255,250,245,0.5); }
     #vibe h2 { color: var(--white); }
     #vibe h2 em { color: var(--linen); }
-
     .vibe-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 0; background: rgba(255,250,245,0.12); }
     .vibe-card { padding: 2.25rem 2rem; border: 1px solid rgba(255,250,245,0.1); background: transparent; transition: background 0.2s; }
     .vibe-card:hover { background: rgba(255,250,245,0.08); }
-    .vibe-num {
-      font-family: var(--font-display);
-      font-size: 2.5rem;
-      font-style: italic;
-      color: rgba(255,250,245,0.15);
-      display: block;
-      margin-bottom: 0.75rem;
-      line-height: 1;
-    }
-    .vibe-card h3 {
-      font-family: var(--font-display);
-      font-size: 1rem;
-      font-style: italic;
-      color: var(--white);
-      margin-bottom: 0.6rem;
-    }
+    .vibe-num { font-family: var(--font-display); font-size: 2.5rem; font-style: italic; color: rgba(255,250,245,0.15); display: block; margin-bottom: 0.75rem; line-height: 1; }
+    .vibe-card h3 { font-family: var(--font-display); font-size: 1rem; font-style: italic; color: var(--white); margin-bottom: 0.6rem; }
     .vibe-card p { font-size: 0.85rem; color: rgba(255,250,245,0.55); line-height: 1.75; }
 
-    /* ── NEWSLETTER ── */
+    /* CATERING */
+    #catering { background: var(--white); padding: 7rem 5rem; }
+    .catering-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start; }
+    .catering-info p { font-size: 1rem; line-height: 1.9; color: var(--choco); opacity: 0.7; margin-bottom: 1.25rem; }
+    .catering-perks { margin-top: 2rem; display: flex; flex-direction: column; gap: 1rem; }
+    .perk { display: flex; gap: 1rem; align-items: flex-start; }
+    .perk-dot { width: 8px; height: 8px; background: var(--tangelo); border-radius: 50%; flex-shrink: 0; margin-top: 0.45rem; }
+    .perk p { font-size: 0.9rem; color: var(--choco); opacity: 0.7; line-height: 1.6; margin: 0; }
+    .perk strong { color: var(--choco); opacity: 1; font-weight: 500; }
+
+    .catering-form { display: flex; flex-direction: column; gap: 1.25rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+    .form-group label { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--choco); opacity: 0.5; }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      padding: 0.85rem 1rem;
+      border: 1.5px solid rgba(61,31,13,0.15);
+      background: var(--linen);
+      font-family: var(--font-body); font-size: 0.9rem; color: var(--choco);
+      outline: none; transition: border-color 0.2s;
+      appearance: none; -webkit-appearance: none;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus { border-color: var(--tangelo); }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { opacity: 0.35; }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+    .form-group select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%233D1F0D' stroke-width='1.5' fill='none'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 1rem center; padding-right: 2.5rem; cursor: pointer; }
+    .form-submit { background: var(--tangelo); color: var(--white); border: none; padding: 1rem 2rem; font-family: var(--font-body); font-size: 0.78rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer; transition: background 0.2s; align-self: flex-start; }
+    .form-submit:hover { background: var(--choco); }
+    .form-success { display: none; background: var(--linen); border-left: 3px solid var(--tangelo); padding: 1.25rem 1.5rem; }
+    .form-success p { font-family: var(--font-display); font-style: italic; font-size: 1.1rem; color: var(--choco); margin: 0; }
+    .form-success span { font-size: 0.85rem; color: var(--choco); opacity: 0.6; display: block; margin-top: 0.25rem; }
+    .form-error { font-size: 0.75rem; color: var(--tangelo); margin-top: 0.2rem; display: none; }
+
+    /* NEWSLETTER */
     #newsletter { background: var(--linen); padding: 7rem 5rem; text-align: center; }
     .newsletter-inner { max-width: 480px; margin: 0 auto; }
     .newsletter-inner h2 { font-size: 2.25rem; }
     .newsletter-inner p { font-size: 0.95rem; opacity: 0.6; line-height: 1.8; margin-bottom: 2rem; }
-    .email-form { display: flex; gap: 0; }
-    .email-form input {
-      flex: 1;
-      padding: 0.9rem 1.2rem;
-      border: 1.5px solid rgba(61,31,13,0.2);
-      border-right: none;
-      background: var(--white);
-      font-family: var(--font-body);
-      font-size: 0.9rem;
-      color: var(--choco);
-      outline: none;
-      transition: border-color 0.2s;
-    }
+    .email-form { display: flex; }
+    .email-form input { flex: 1; padding: 0.9rem 1.2rem; border: 1.5px solid rgba(61,31,13,0.2); border-right: none; background: var(--white); font-family: var(--font-body); font-size: 0.9rem; color: var(--choco); outline: none; transition: border-color 0.2s; }
     .email-form input:focus { border-color: var(--tangelo); }
     .email-form input::placeholder { opacity: 0.35; }
-    .email-form button {
-      background: var(--tangelo); color: var(--white); border: none;
-      padding: 0 1.5rem;
-      font-family: var(--font-body); font-size: 0.75rem; font-weight: 500;
-      letter-spacing: 0.12em; text-transform: uppercase;
-      cursor: pointer; transition: background 0.2s; white-space: nowrap;
-    }
+    .email-form button { background: var(--tangelo); color: var(--white); border: none; padding: 0 1.5rem; font-family: var(--font-body); font-size: 0.75rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; transition: background 0.2s; white-space: nowrap; }
     .email-form button:hover { background: var(--choco); }
 
-    /* ── FOOTER ── */
-    footer {
-      background: var(--choco);
-      padding: 3rem 5rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-    }
+    /* FOOTER */
+    footer { background: var(--choco); padding: 3rem 5rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; }
     .footer-logo { font-family: var(--font-display); font-style: italic; font-size: 1.4rem; color: var(--linen); }
     .footer-links { display: flex; gap: 2rem; }
     .footer-links a { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(249,232,212,0.4); text-decoration: none; transition: color 0.2s; }
     .footer-links a:hover { color: var(--linen); }
     footer p { font-size: 0.75rem; color: rgba(249,232,212,0.25); }
 
-    /* ── RESPONSIVE ── */
+    /* RESPONSIVE */
     @media (max-width: 900px) {
       #hero { grid-template-columns: 1fr; }
       .hero-right { display: none; }
       .hero-left { padding: 4rem 2rem; }
-      section, #about, #find, #menu, #vibe, #newsletter { padding: 5rem 2rem; }
-      .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+      section, #about, #find, #menu, #builder, #vibe, #catering, #location, #newsletter { padding: 5rem 2rem; }
+      .about-grid, .builder-grid, .catering-grid, .location-grid { grid-template-columns: 1fr; gap: 3rem; }
       .vibe-grid { grid-template-columns: 1fr 1fr; }
       footer { flex-direction: column; align-items: flex-start; padding: 2.5rem 2rem; }
       nav { padding: 0 2rem; }
       nav ul { display: none; }
+      .form-row { grid-template-columns: 1fr; }
     }
     @media (max-width: 560px) {
       .vibe-grid { grid-template-columns: 1fr; }
@@ -447,7 +255,7 @@
       .email-form input { border-right: 1.5px solid rgba(61,31,13,0.2); border-bottom: none; }
     }
 
-    /* ── FADE ── */
+    /* FADE */
     .fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.65s ease, transform 0.65s ease; }
     .fade-up.visible { opacity: 1; transform: translateY(0); }
   </style>
@@ -457,10 +265,10 @@
   <nav>
     <div class="nav-logo">The Nook</div>
     <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#find">Find Us</a></li>
+      <li><a href="#location">Find Us</a></li>
       <li><a href="#menu">Menu</a></li>
-      <li><a href="#newsletter">Stay in Touch</a></li>
+      <li><a href="#builder">Build a Drink</a></li>
+      <li><a href="#catering">Catering</a></li>
     </ul>
   </nav>
 
@@ -468,40 +276,57 @@
   <section id="hero">
     <div class="hero-left">
       <span class="hero-tag">Coffee Truck · Coming to you</span>
-      <h1 class="hero-title">
-        Great coffee<br>
-        <em>finds you.</em>
-      </h1>
+      <h1 class="hero-title">Great coffee<br><em>finds you.</em></h1>
       <p class="hero-body">The Nook is on the move — small-batch coffee, made to order, wherever you already are. Find the truck, grab something good.</p>
       <div class="hero-actions">
-        <a href="#find" class="btn btn-primary">Find the Truck</a>
-        <a href="#menu" class="btn btn-ghost">See the Menu</a>
+        <a href="#location" class="btn btn-primary">Find the Truck</a>
+        <a href="#builder" class="btn btn-ghost">Build a Drink</a>
       </div>
     </div>
     <div class="hero-right">
       <div class="hero-arch-inner">
-        <!-- clean SVG truck -->
         <svg class="truck-svg" viewBox="0 0 260 130" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <!-- truck body -->
           <rect x="0" y="30" width="185" height="75" rx="4" fill="#D54C15"/>
-          <!-- cab -->
           <rect x="185" y="14" width="75" height="91" rx="4" fill="#3D1F0D"/>
-          <!-- window -->
           <rect x="193" y="22" width="59" height="38" rx="3" fill="#C8DEE8" opacity="0.85"/>
-          <!-- truck side stripe -->
           <rect x="0" y="88" width="185" height="17" rx="0" fill="#3D1F0D" opacity="0.25"/>
-          <!-- The Nook lettering -->
           <text x="18" y="72" font-family="Georgia, serif" font-style="italic" font-size="18" fill="#FFFAF5" opacity="0.95">The Nook</text>
-          <!-- wheel left -->
           <circle cx="48" cy="108" r="18" fill="#3D1F0D"/>
           <circle cx="48" cy="108" r="9" fill="#C8DEE8" opacity="0.5"/>
-          <!-- wheel right -->
           <circle cx="155" cy="108" r="18" fill="#3D1F0D"/>
           <circle cx="155" cy="108" r="9" fill="#C8DEE8" opacity="0.5"/>
-          <!-- steam lines -->
           <line x1="40" y1="28" x2="40" y2="10" stroke="#FFFAF5" stroke-width="3" stroke-linecap="round" opacity="0.4"/>
           <line x1="58" y1="24" x2="58" y2="6" stroke="#FFFAF5" stroke-width="3" stroke-linecap="round" opacity="0.25"/>
         </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIVE LOCATION -->
+  <section id="location">
+    <div class="container">
+      <div class="fade-up">
+        <span class="eyebrow">Live schedule</span>
+        <h2>Where's the truck <em>today?</em></h2>
+      </div>
+      <div class="location-grid">
+        <div class="fade-up">
+          <div class="location-status" id="todayStatus">
+            <div><span class="status-dot" id="statusDot"></span><span class="status-label" id="statusLabel">Loading...</span></div>
+            <div class="status-place" id="statusPlace">—</div>
+            <div class="status-time" id="statusTime"></div>
+            <div class="status-address" id="statusAddress"></div>
+          </div>
+          <div class="day-pills" id="dayPills"></div>
+        </div>
+        <div class="fade-up">
+          <iframe
+            class="map-embed"
+            id="mapEmbed"
+            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFmBWY&q=Downtown+Farmers+Market"
+            allowfullscreen loading="lazy">
+          </iframe>
+        </div>
       </div>
     </div>
   </section>
@@ -529,61 +354,6 @@
     </div>
   </section>
 
-  <!-- FIND THE TRUCK -->
-  <section id="find">
-    <div class="find-inner">
-      <div class="fade-up">
-        <span class="eyebrow">This week's stops</span>
-        <h2>Where to <em>find us</em></h2>
-        <p class="schedule-lede">We roll out six days a week. Locations can shift — follow us on Instagram for real-time updates and surprise stops.</p>
-      </div>
-      <div class="week-grid fade-up">
-        <div class="day-card">
-          <div class="day-name">Monday</div>
-          <div class="day-where">Downtown Farmers Market</div>
-          <div class="day-time">7:00 am – 12:00 pm</div>
-        </div>
-        <div class="day-card">
-          <div class="day-name">Tuesday</div>
-          <div class="day-where">Midtown Office Row</div>
-          <div class="day-time">7:30 am – 1:00 pm</div>
-        </div>
-        <div class="day-card">
-          <div class="day-name">Wednesday</div>
-          <div class="day-where">Riverside Park</div>
-          <div class="day-time">8:00 am – 1:00 pm</div>
-        </div>
-        <div class="day-card">
-          <div class="day-name">Thursday</div>
-          <div class="day-where">Midtown Office Row</div>
-          <div class="day-time">7:30 am – 1:00 pm</div>
-        </div>
-        <div class="day-card">
-          <div class="day-name">Friday</div>
-          <div class="day-where">Pop-up — check Instagram</div>
-          <div class="day-time">Location varies</div>
-        </div>
-        <div class="day-card">
-          <div class="day-name">Saturday</div>
-          <div class="day-where">Oak Street Weekend Market</div>
-          <div class="day-time">8:00 am – 2:00 pm</div>
-        </div>
-        <div class="day-card closed">
-          <div class="day-name">Sunday</div>
-          <div class="day-where">The truck is resting</div>
-          <div class="day-time">Back Monday</div>
-        </div>
-      </div>
-      <div class="ig-bar fade-up">
-        <div>
-          <strong>Locations change week to week</strong>
-          <p>We post every Sunday with the week ahead — new spots, pop-ups, and the occasional free drink.</p>
-        </div>
-        <a href="#">Follow @thenooktruck</a>
-      </div>
-    </div>
-  </section>
-
   <!-- MENU -->
   <section id="menu">
     <div class="container">
@@ -596,77 +366,120 @@
         <button class="tab-btn" onclick="switchTab('tea',event)">Tea &amp; More</button>
         <button class="tab-btn" onclick="switchTab('bites',event)">Bites</button>
       </div>
-
       <div id="tab-coffee" class="menu-panel active">
         <div class="menu-grid">
-          <div class="menu-card fade-up">
-            <div class="menu-card-name">Nook Latte</div>
-            <div class="menu-card-desc">House espresso, velvety steamed milk, a touch of vanilla. The one people come back for.</div>
-            <span class="menu-card-price">$5.50</span>
-          </div>
-          <div class="menu-card fade-up">
-            <div class="menu-card-name">Black &amp; Bright</div>
-            <div class="menu-card-desc">A clean pour-over, brewed slow and served black. Simple, serious, perfect.</div>
-            <span class="menu-card-price">$4.00</span>
-          </div>
-          <div class="menu-card fade-up">
-            <div class="menu-card-name">Honey Cortado</div>
-            <div class="menu-card-desc">Equal parts espresso and warm milk, finished with a swirl of local wildflower honey.</div>
-            <span class="menu-card-price">$5.00</span>
-          </div>
-          <div class="menu-card fade-up">
-            <div class="menu-card-name">Cold Brew Float</div>
-            <div class="menu-card-desc">Slow-steeped cold brew over a scoop of vanilla bean ice cream. Yes, really.</div>
-            <span class="menu-card-price">$7.00</span>
-          </div>
+          <div class="menu-card fade-up"><div class="menu-card-name">Nook Latte</div><div class="menu-card-desc">House espresso, velvety steamed milk, a touch of vanilla. The one people come back for.</div><span class="menu-card-price">$5.50</span></div>
+          <div class="menu-card fade-up"><div class="menu-card-name">Black &amp; Bright</div><div class="menu-card-desc">A clean pour-over, brewed slow and served black. Simple, serious, perfect.</div><span class="menu-card-price">$4.00</span></div>
+          <div class="menu-card fade-up"><div class="menu-card-name">Honey Cortado</div><div class="menu-card-desc">Equal parts espresso and warm milk, finished with a swirl of local wildflower honey.</div><span class="menu-card-price">$5.00</span></div>
+          <div class="menu-card fade-up"><div class="menu-card-name">Cold Brew Float</div><div class="menu-card-desc">Slow-steeped cold brew over a scoop of vanilla bean ice cream. Yes, really.</div><span class="menu-card-price">$7.00</span></div>
         </div>
       </div>
       <div id="tab-tea" class="menu-panel">
         <div class="menu-grid">
-          <div class="menu-card fade-up">
-            <div class="menu-card-name">Loose Leaf Earl Grey</div>
-            <div class="menu-card-desc">Bergamot-forward, fragrant. Served with cream and brown sugar cubes.</div>
-            <span class="menu-card-price">$4.50</span>
-          </div>
-          <div class="menu-card fade-up">
-            <div class="menu-card-name">Mint Matcha</div>
-            <div class="menu-card-desc">Ceremonial-grade matcha with oat milk and a breath of fresh mint.</div>
-            <span class="menu-card-price">$6.00</span>
-          </div>
-          <div class="menu-card fade-up">
-            <div class="menu-card-name">Berry Hibiscus Spritz</div>
-            <div class="menu-card-desc">Hibiscus tea, muddled blueberries, sparkling water. Tart and beautiful.</div>
-            <span class="menu-card-price">$5.50</span>
-          </div>
-          <div class="menu-card fade-up">
-            <div class="menu-card-name">Lemon Ginger Tonic</div>
-            <div class="menu-card-desc">Ginger syrup, fresh lemon, tonic water over ice. Zingy, fizzy, alive.</div>
-            <span class="menu-card-price">$5.00</span>
-          </div>
+          <div class="menu-card fade-up"><div class="menu-card-name">Loose Leaf Earl Grey</div><div class="menu-card-desc">Bergamot-forward, fragrant. Served with cream and brown sugar cubes.</div><span class="menu-card-price">$4.50</span></div>
+          <div class="menu-card fade-up"><div class="menu-card-name">Mint Matcha</div><div class="menu-card-desc">Ceremonial-grade matcha with oat milk and a breath of fresh mint.</div><span class="menu-card-price">$6.00</span></div>
+          <div class="menu-card fade-up"><div class="menu-card-name">Berry Hibiscus Spritz</div><div class="menu-card-desc">Hibiscus tea, muddled blueberries, sparkling water. Tart and beautiful.</div><span class="menu-card-price">$5.50</span></div>
+          <div class="menu-card fade-up"><div class="menu-card-name">Lemon Ginger Tonic</div><div class="menu-card-desc">Ginger syrup, fresh lemon, tonic water over ice. Zingy, fizzy, alive.</div><span class="menu-card-price">$5.00</span></div>
         </div>
       </div>
       <div id="tab-bites" class="menu-panel">
         <div class="menu-grid">
-          <div class="menu-card fade-up">
-            <div class="menu-card-name">Butter Croissant</div>
-            <div class="menu-card-desc">Baked fresh each morning. Shatters on the outside, pillowy in the middle.</div>
-            <span class="menu-card-price">$3.50</span>
+          <div class="menu-card fade-up"><div class="menu-card-name">Butter Croissant</div><div class="menu-card-desc">Baked fresh each morning. Shatters on the outside, pillowy in the middle.</div><span class="menu-card-price">$3.50</span></div>
+          <div class="menu-card fade-up"><div class="menu-card-name">Lemon Poppy Loaf</div><div class="menu-card-desc">Dense, zesty, drizzled with a lemon glaze that borders on dessert.</div><span class="menu-card-price">$4.00</span></div>
+          <div class="menu-card fade-up"><div class="menu-card-name">Grab &amp; Go Wrap</div><div class="menu-card-desc">Scrambled eggs, sharp cheddar, roasted peppers. Truck-friendly fuel.</div><span class="menu-card-price">$8.00</span></div>
+          <div class="menu-card fade-up"><div class="menu-card-name">Brown Butter Cookie</div><div class="menu-card-desc">Edges crisp, center chewy, finished with a pinch of flaky sea salt.</div><span class="menu-card-price">$3.00</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DRINK BUILDER -->
+  <section id="builder">
+    <div class="container">
+      <div class="fade-up">
+        <span class="eyebrow">Make it yours</span>
+        <h2>Build your <em>perfect drink</em></h2>
+      </div>
+      <div class="builder-grid">
+        <div class="builder-options fade-up">
+          <div class="builder-group">
+            <label>Base</label>
+            <div class="option-row" id="opt-base">
+              <button class="opt-btn selected" data-group="base" data-val="Latte" data-price="5.50">Latte</button>
+              <button class="opt-btn" data-group="base" data-val="Cortado" data-price="5.00">Cortado</button>
+              <button class="opt-btn" data-group="base" data-val="Pour-Over" data-price="4.00">Pour-Over</button>
+              <button class="opt-btn" data-group="base" data-val="Cold Brew" data-price="5.50">Cold Brew</button>
+              <button class="opt-btn" data-group="base" data-val="Matcha" data-price="6.00">Matcha</button>
+            </div>
           </div>
-          <div class="menu-card fade-up">
-            <div class="menu-card-name">Lemon Poppy Loaf</div>
-            <div class="menu-card-desc">Dense, zesty, drizzled with a lemon glaze that borders on dessert.</div>
-            <span class="menu-card-price">$4.00</span>
+          <div class="builder-group">
+            <label>Milk</label>
+            <div class="option-row" id="opt-milk">
+              <button class="opt-btn selected" data-group="milk" data-val="Oat Milk">Oat Milk</button>
+              <button class="opt-btn" data-group="milk" data-val="Whole Milk">Whole Milk</button>
+              <button class="opt-btn" data-group="milk" data-val="Almond Milk">Almond Milk</button>
+              <button class="opt-btn" data-group="milk" data-val="Coconut Milk">Coconut Milk</button>
+              <button class="opt-btn" data-group="milk" data-val="No Milk">No Milk</button>
+            </div>
           </div>
-          <div class="menu-card fade-up">
-            <div class="menu-card-name">Grab &amp; Go Wrap</div>
-            <div class="menu-card-desc">Scrambled eggs, sharp cheddar, roasted peppers. Truck-friendly fuel.</div>
-            <span class="menu-card-price">$8.00</span>
+          <div class="builder-group">
+            <label>Syrup</label>
+            <div class="option-row" id="opt-syrup">
+              <button class="opt-btn selected" data-group="syrup" data-val="None">None</button>
+              <button class="opt-btn" data-group="syrup" data-val="Vanilla">Vanilla</button>
+              <button class="opt-btn" data-group="syrup" data-val="Honey">Honey</button>
+              <button class="opt-btn" data-group="syrup" data-val="Lavender">Lavender</button>
+              <button class="opt-btn" data-group="syrup" data-val="Brown Sugar">Brown Sugar</button>
+              <button class="opt-btn" data-group="syrup" data-val="Hazelnut">Hazelnut</button>
+            </div>
           </div>
-          <div class="menu-card fade-up">
-            <div class="menu-card-name">Brown Butter Cookie</div>
-            <div class="menu-card-desc">Edges crisp, center chewy, finished with a pinch of flaky sea salt.</div>
-            <span class="menu-card-price">$3.00</span>
+          <div class="builder-group">
+            <label>Size</label>
+            <div class="option-row" id="opt-size">
+              <button class="opt-btn" data-group="size" data-val="Small" data-mod="-0.50">Small</button>
+              <button class="opt-btn selected" data-group="size" data-val="Medium" data-mod="0">Medium</button>
+              <button class="opt-btn" data-group="size" data-val="Large" data-mod="0.50">Large</button>
+            </div>
           </div>
+          <div class="builder-group">
+            <label>Temperature</label>
+            <div class="option-row" id="opt-temp">
+              <button class="opt-btn selected" data-group="temp" data-val="Hot">Hot</button>
+              <button class="opt-btn" data-group="temp" data-val="Iced">Iced</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="builder-preview fade-up">
+          <div class="preview-cup">
+            <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" id="cupSvg">
+              <!-- steam -->
+              <line x1="42" y1="18" x2="38" y2="6" stroke="#C8DEE8" stroke-width="2.5" stroke-linecap="round" opacity="0.6" id="steam1"/>
+              <line x1="56" y1="16" x2="56" y2="4" stroke="#C8DEE8" stroke-width="2.5" stroke-linecap="round" opacity="0.4" id="steam2"/>
+              <line x1="70" y1="18" x2="74" y2="6" stroke="#C8DEE8" stroke-width="2.5" stroke-linecap="round" opacity="0.6" id="steam3"/>
+              <!-- cup body -->
+              <path d="M25 28 L32 95 Q32 100 38 100 L82 100 Q88 100 88 95 L95 28 Z" fill="#D54C15" id="cupBody"/>
+              <!-- liquid fill -->
+              <path d="M28 46 L33 95 Q33 100 38 100 L82 100 Q87 100 87 95 L92 46 Z" fill="#8DB6C7" opacity="0.5" id="liquidFill"/>
+              <!-- rim -->
+              <rect x="22" y="24" width="76" height="8" rx="4" fill="#C0440F" id="cupRim"/>
+              <!-- handle -->
+              <path d="M88 50 Q108 50 108 65 Q108 80 88 80" stroke="#C0440F" stroke-width="5" fill="none" stroke-linecap="round" id="cupHandle"/>
+              <!-- saucer -->
+              <ellipse cx="60" cy="106" rx="42" ry="7" fill="#C0440F" opacity="0.4" id="cupSaucer"/>
+            </svg>
+          </div>
+          <div class="preview-name" id="previewName">Oat Milk Latte</div>
+          <div class="preview-desc" id="previewDesc">Medium · Hot · No syrup</div>
+          <div class="preview-price" id="previewPrice">$5.50</div>
+          <div class="preview-divider"></div>
+          <div class="preview-tags" id="previewTags">
+            <span class="preview-tag">Latte</span>
+            <span class="preview-tag">Oat Milk</span>
+            <span class="preview-tag">Medium</span>
+          </div>
+          <button class="builder-add-btn" onclick="addToOrder()">Add to Order</button>
+          <div class="builder-toast" id="builderToast">Added! See you at the truck.</div>
         </div>
       </div>
     </div>
@@ -680,35 +493,91 @@
         <h2>You'll love us <em>if —</em></h2>
       </div>
       <div class="vibe-grid">
-        <div class="vibe-card fade-up">
-          <span class="vibe-num">01</span>
-          <h3>You're an early bird</h3>
-          <p>We're already parked and brewing before most people find their shoes. Come find us.</p>
+        <div class="vibe-card fade-up"><span class="vibe-num">01</span><h3>You're an early bird</h3><p>We're already parked and brewing before most people find their shoes. Come find us.</p></div>
+        <div class="vibe-card fade-up"><span class="vibe-num">02</span><h3>You like a little adventure</h3><p>We move around. Half the fun is finding us somewhere new and unexpected.</p></div>
+        <div class="vibe-card fade-up"><span class="vibe-num">03</span><h3>You like knowing your barista</h3><p>It's just us at the window. We'll remember your name before your order.</p></div>
+        <div class="vibe-card fade-up"><span class="vibe-num">04</span><h3>You bring your dog everywhere</h3><p>We keep a water bowl by the truck and probably a treat behind the counter.</p></div>
+        <div class="vibe-card fade-up"><span class="vibe-num">05</span><h3>You follow local businesses</h3><p>Tag us, share us, tell your friends. That's genuinely how we grow.</p></div>
+        <div class="vibe-card fade-up"><span class="vibe-num">06</span><h3>Rainy days don't stop you</h3><p>Neither do they stop us. We'll be there, probably with something seasonal.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATERING -->
+  <section id="catering">
+    <div class="container">
+      <div class="catering-grid">
+        <div class="catering-info fade-up">
+          <span class="eyebrow">Bring us to your event</span>
+          <h2>Book the <em>truck</em></h2>
+          <p>The Nook is available for private events, corporate gatherings, weddings, pop-ups, and any occasion worth celebrating with good coffee.</p>
+          <div class="catering-perks">
+            <div class="perk"><div class="perk-dot"></div><p><strong>Full-service setup</strong> — we bring everything, including cups, lids, and all the good stuff.</p></div>
+            <div class="perk"><div class="perk-dot"></div><p><strong>Custom menu</strong> — we'll work with you to build a drink menu for your crowd.</p></div>
+            <div class="perk"><div class="perk-dot"></div><p><strong>Flexible hours</strong> — morning events, afternoon pop-ups, evening receptions.</p></div>
+            <div class="perk"><div class="perk-dot"></div><p><strong>Minimum 2 hours</strong> — we'll confirm availability within 24 hours of your inquiry.</p></div>
+          </div>
         </div>
-        <div class="vibe-card fade-up">
-          <span class="vibe-num">02</span>
-          <h3>You like a little adventure</h3>
-          <p>We move around. Half the fun is finding us somewhere new and unexpected.</p>
-        </div>
-        <div class="vibe-card fade-up">
-          <span class="vibe-num">03</span>
-          <h3>You like knowing your barista</h3>
-          <p>It's just us at the window. We'll remember your name before your order.</p>
-        </div>
-        <div class="vibe-card fade-up">
-          <span class="vibe-num">04</span>
-          <h3>You bring your dog everywhere</h3>
-          <p>We keep a water bowl by the truck and probably a treat behind the counter.</p>
-        </div>
-        <div class="vibe-card fade-up">
-          <span class="vibe-num">05</span>
-          <h3>You follow local businesses</h3>
-          <p>Tag us, share us, tell your friends. That's genuinely how we grow.</p>
-        </div>
-        <div class="vibe-card fade-up">
-          <span class="vibe-num">06</span>
-          <h3>Rainy days don't stop you</h3>
-          <p>Neither do they stop us. We'll be there, probably with something seasonal.</p>
+
+        <div class="fade-up">
+          <div class="catering-form" id="cateringForm">
+            <div class="form-row">
+              <div class="form-group">
+                <label>First Name</label>
+                <input type="text" id="firstName" placeholder="Jane" />
+                <span class="form-error" id="err-firstName">Required</span>
+              </div>
+              <div class="form-group">
+                <label>Last Name</label>
+                <input type="text" id="lastName" placeholder="Smith" />
+                <span class="form-error" id="err-lastName">Required</span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" id="email" placeholder="jane@example.com" />
+              <span class="form-error" id="err-email">A valid email is required</span>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Event Date</label>
+                <input type="date" id="eventDate" />
+                <span class="form-error" id="err-eventDate">Required</span>
+              </div>
+              <div class="form-group">
+                <label>Expected Guests</label>
+                <select id="guestCount">
+                  <option value="">Select range</option>
+                  <option value="under-50">Under 50</option>
+                  <option value="50-100">50 – 100</option>
+                  <option value="100-250">100 – 250</option>
+                  <option value="250+">250+</option>
+                </select>
+                <span class="form-error" id="err-guestCount">Required</span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Event Type</label>
+              <select id="eventType">
+                <option value="">Select type</option>
+                <option value="corporate">Corporate / Office</option>
+                <option value="wedding">Wedding</option>
+                <option value="birthday">Birthday / Celebration</option>
+                <option value="market">Market / Pop-up</option>
+                <option value="other">Other</option>
+              </select>
+              <span class="form-error" id="err-eventType">Required</span>
+            </div>
+            <div class="form-group">
+              <label>Tell us about your event</label>
+              <textarea id="message" placeholder="Location, timing, anything special we should know..."></textarea>
+            </div>
+            <button class="form-submit" onclick="submitCatering()">Send Inquiry</button>
+          </div>
+          <div class="form-success" id="cateringSuccess">
+            <p>We got it — thank you!</p>
+            <span>We'll be in touch within 24 hours to confirm availability and talk through the details.</span>
+          </div>
         </div>
       </div>
     </div>
@@ -721,7 +590,7 @@
       <h2>Get the <em>weekly route</em></h2>
       <p>Every Sunday we send out the week's schedule, any new stops, and the occasional drink special. No spam — just coffee news.</p>
       <div class="email-form">
-        <input type="email" placeholder="your@email.com" />
+        <input type="email" id="nlEmail" placeholder="your@email.com" />
         <button type="button" onclick="handleSubscribe(this)">Subscribe</button>
       </div>
     </div>
@@ -735,10 +604,73 @@
       <a href="#">Facebook</a>
       <a href="#">TikTok</a>
     </div>
-    <p>© 2025 The Nook Coffee Truck</p>
+    <p>© 2026 The Nook Coffee Truck</p>
   </footer>
 
   <script>
+    // ── SCHEDULE DATA ──
+    const schedule = [
+      { day: 'Monday',    place: 'Downtown Farmers Market',   time: '7:00 am – 12:00 pm', address: 'Downtown Plaza',         query: 'Farmers+Market+Downtown' },
+      { day: 'Tuesday',   place: 'Midtown Office Row',         time: '7:30 am – 1:00 pm',  address: 'Midtown District',       query: 'Midtown+Office+District' },
+      { day: 'Wednesday', place: 'Riverside Park',             time: '8:00 am – 1:00 pm',  address: 'Riverside Park',         query: 'Riverside+Park' },
+      { day: 'Thursday',  place: 'Midtown Office Row',         time: '7:30 am – 1:00 pm',  address: 'Midtown District',       query: 'Midtown+Office+District' },
+      { day: 'Friday',    place: 'Pop-up — check Instagram',   time: 'Location varies',     address: 'Follow @thenooktruck',   query: 'Coffee+Truck' },
+      { day: 'Saturday',  place: 'Oak Street Weekend Market',  time: '8:00 am – 2:00 pm',  address: 'Oak Street',             query: 'Oak+Street+Market' },
+      { day: 'Sunday',    place: 'The truck is resting',       time: 'Back Monday',         address: '',                       query: null },
+    ];
+
+    const dayNames = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+    const todayIdx = new Date().getDay();
+    const todayName = dayNames[todayIdx];
+
+    function buildSchedule() {
+      const pillsEl = document.getElementById('dayPills');
+      const statusPlace = document.getElementById('statusPlace');
+      const statusTime  = document.getElementById('statusTime');
+      const statusAddress = document.getElementById('statusAddress');
+      const statusLabel = document.getElementById('statusLabel');
+      const statusDot   = document.getElementById('statusDot');
+
+      // sort starting from today
+      const sorted = [...schedule.slice(todayIdx - 1), ...schedule.slice(0, todayIdx - 1)];
+
+      sorted.forEach((s, i) => {
+        const pill = document.createElement('div');
+        pill.className = 'day-pill' + (s.day === todayName ? ' active' : '') + (s.day === 'Sunday' ? ' rest' : '');
+        pill.innerHTML = `<span class="day-pill-name">${s.day}</span><span class="day-pill-loc">${s.place}</span><span class="day-pill-time">${s.time}</span>`;
+        if (s.day !== 'Sunday') {
+          pill.addEventListener('click', () => {
+            document.querySelectorAll('.day-pill').forEach(p => p.classList.remove('active'));
+            pill.classList.add('active');
+            updateMap(s.query);
+          });
+        }
+        pillsEl.appendChild(pill);
+      });
+
+      const today = schedule.find(s => s.day === todayName);
+      if (today) {
+        if (today.day === 'Sunday') {
+          statusDot.classList.add('closed');
+          statusLabel.textContent = 'Closed today';
+        } else {
+          statusLabel.textContent = 'Open today';
+        }
+        statusPlace.textContent   = today.place;
+        statusTime.textContent    = today.time;
+        statusAddress.textContent = today.address;
+      }
+    }
+
+    function updateMap(query) {
+      if (!query) return;
+      const iframe = document.getElementById('mapEmbed');
+      iframe.src = `https://www.google.com/maps/embed/v1/place?key=AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFmBWY&q=${query}`;
+    }
+
+    buildSchedule();
+
+    // ── MENU TABS ──
     function switchTab(name, e) {
       document.querySelectorAll('.menu-panel').forEach(p => p.classList.remove('active'));
       document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
@@ -750,24 +682,90 @@
       });
     }
 
-    const io = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-    }, { threshold: 0.08 });
-    document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
+    // ── DRINK BUILDER ──
+    const selections = { base: 'Latte', milk: 'Oat Milk', syrup: 'None', size: 'Medium', temp: 'Hot' };
+    const basePrices = { 'Latte': 5.50, 'Cortado': 5.00, 'Pour-Over': 4.00, 'Cold Brew': 5.50, 'Matcha': 6.00 };
+    const sizeMods   = { 'Small': -0.50, 'Medium': 0, 'Large': 0.50 };
+    const liquidColors = { 'Latte': '#C49A6C', 'Cortado': '#A0672A', 'Pour-Over': '#6B3F22', 'Cold Brew': '#3D1F0D', 'Matcha': '#7A8C6A' };
 
+    document.querySelectorAll('.opt-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const group = btn.dataset.group;
+        document.querySelectorAll(`[data-group="${group}"]`).forEach(b => b.classList.remove('selected'));
+        btn.classList.add('selected');
+        selections[group] = btn.dataset.val;
+        updatePreview();
+      });
+    });
+
+    function updatePreview() {
+      const { base, milk, syrup, size, temp } = selections;
+      const price = (basePrices[base] + sizeMods[size]).toFixed(2);
+      const syrupStr = syrup === 'None' ? 'No syrup' : syrup;
+      const name = milk === 'No Milk' ? `${temp} ${base}` : `${milk} ${base}`;
+
+      document.getElementById('previewName').textContent = name;
+      document.getElementById('previewDesc').textContent = `${size} · ${temp} · ${syrupStr}`;
+      document.getElementById('previewPrice').textContent = `$${price}`;
+
+      const tags = [base, milk !== 'No Milk' ? milk : null, syrup !== 'None' ? syrup : null, size].filter(Boolean);
+      document.getElementById('previewTags').innerHTML = tags.map(t => `<span class="preview-tag">${t}</span>`).join('');
+
+      // update cup color
+      const fill = document.getElementById('liquidFill');
+      fill.setAttribute('fill', liquidColors[base] || '#C49A6C');
+
+      // hide steam if iced
+      const opacity = temp === 'Iced' ? '0' : '0.6';
+      ['steam1','steam2','steam3'].forEach(id => document.getElementById(id).style.opacity = temp === 'Iced' ? '0' : id === 'steam2' ? '0.4' : '0.6');
+    }
+
+    function addToOrder() {
+      const toast = document.getElementById('builderToast');
+      toast.style.display = 'block';
+      setTimeout(() => { toast.style.display = 'none'; }, 3000);
+    }
+
+    // ── CATERING FORM ──
+    function submitCatering() {
+      const fields = ['firstName','lastName','email','eventDate','guestCount','eventType'];
+      let valid = true;
+
+      fields.forEach(id => {
+        const el = document.getElementById(id);
+        const err = document.getElementById('err-' + id);
+        const empty = !el.value.trim();
+        const badEmail = id === 'email' && el.value && !el.value.includes('@');
+        if (empty || badEmail) {
+          err.style.display = 'block';
+          el.style.borderColor = 'var(--tangelo)';
+          valid = false;
+        } else {
+          err.style.display = 'none';
+          el.style.borderColor = '';
+        }
+      });
+
+      if (!valid) return;
+
+      document.getElementById('cateringForm').style.display = 'none';
+      document.getElementById('cateringSuccess').style.display = 'block';
+    }
+
+    // ── NEWSLETTER ──
     function handleSubscribe(btn) {
-      const input = btn.previousElementSibling;
+      const input = document.getElementById('nlEmail');
       if (!input.value || !input.value.includes('@')) { input.style.borderColor = 'var(--tangelo)'; return; }
       btn.textContent = 'You\'re in';
       btn.style.background = 'var(--choco)';
       input.disabled = true; btn.disabled = true;
     }
 
-    const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
-    const today = days[new Date().getDay()];
-    document.querySelectorAll('.day-name').forEach(el => {
-      if (el.textContent.trim() === today) el.closest('.day-card').classList.add('today');
-    });
+    // ── SCROLL FADE ──
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
   </script>
 </body>
 </html>
